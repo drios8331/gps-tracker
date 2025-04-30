@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  nest-tcp-server:
+    build: .
+    container_name: nest-tcp-server
+    ports:
+      - '5001:5001'
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - gps-net
+
+networks:
+  gps-net:
+    driver: bridge
