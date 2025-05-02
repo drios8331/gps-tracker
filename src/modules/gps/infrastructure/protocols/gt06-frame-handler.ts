@@ -7,7 +7,7 @@ export class Gt06FrameHandler {
 
   async handle(hex: string) {
     // console.log('🧩 Procesando trama GT06...');
-
+    console.log('📥 Trama recibida (hex):', hex);
     const payload = this.parseGt06Frame(hex);
     // console.log('📦 Datos parseados:', payload);
 
