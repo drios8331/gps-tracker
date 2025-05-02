@@ -6,12 +6,16 @@ export class Gt06FrameHandler {
   constructor(private readonly useCase: ProcessGt06FrameUseCase) {}
 
   async handle(hex: string) {
-    // console.log('🧩 Procesando trama GT06...');
-    console.log('📥 Trama recibida (hex):', hex);
-    const payload = this.parseGt06Frame(hex);
-    // console.log('📦 Datos parseados:', payload);
-
-    await this.useCase.execute(payload);
+    try {
+      console.log('📥 Trama recibida (hex):', hex);
+      const payload = this.parseGt06Frame(hex);
+      // console.log('📦 Datos parseados:', payload);
+      await this.useCase.execute(payload);
+    } catch (error) {
+      console.error('❌ Error al procesar la trama:', error.message);
+      console.log('📏 Longitud de la trama:', hex.length); // Output: 16
+      console.warn('Trama que falló:', hex);
+    }
   }
 
   private parseGt06Frame(hex: string): {
