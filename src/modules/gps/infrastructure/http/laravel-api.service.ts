@@ -35,8 +35,10 @@ export class LaravelApiService {
         this.http.post(`${this.baseUrl}locations/gps-tracker`, data),
       );
       console.log('✅ Laravel respondió:', response.status);
+      console.log('-----------------------------------------------------------');
     } catch (error) {
       console.error('❌ Error al enviar a Laravel:', error.message);
+      console.log('-----------------------------------------------------------');
     }
   }
 }

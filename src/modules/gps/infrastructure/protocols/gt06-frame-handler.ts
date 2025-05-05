@@ -7,6 +7,7 @@ export class Gt06FrameHandler {
 
   async handle(hex: string) {
     try {
+      console.log('-----------------------------------------------------------');
       console.log('📥 Trama recibida (hex):', hex);
       const payload = this.parseGt06Frame(hex);
       console.log('📥 Trama recibida (parsed):', payload);
@@ -16,6 +17,7 @@ export class Gt06FrameHandler {
       console.error('❌ Error al procesar la trama:', error.message);
       console.log('📏 Longitud de la trama:', hex.length); // Output: 16
       console.warn('Trama que falló:', hex);
+      console.log('-----------------------------------------------------------');
     }
   }
 
