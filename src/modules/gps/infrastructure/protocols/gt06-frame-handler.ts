@@ -9,6 +9,7 @@ export class Gt06FrameHandler {
     try {
       console.log('📥 Trama recibida (hex):', hex);
       const payload = this.parseGt06Frame(hex);
+      console.log('📥 Trama recibida (parsed):', payload);
       // console.log('📦 Datos parseados:', payload);
       await this.useCase.execute(payload);
     } catch (error) {
